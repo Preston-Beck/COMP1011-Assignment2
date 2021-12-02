@@ -9,7 +9,10 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
 
+import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class NHLTableController implements Initializable {
@@ -27,8 +30,16 @@ public class NHLTableController implements Initializable {
     private Button searchButton;
 
     @FXML
-    void getSearchResults(ActionEvent event){
-        teamListView.getItems().addAll(APIUtility.getTeamsFromJSON().getTeams());
+    void getSearchResults(ActionEvent event) {
+        //teamListView.getItems().addAll(APIUtility.getTeamsFromJSON().getTeams());
+        //ArrayList<Team> teams = new ArrayList<Team>(List.of(APIUtility.getTeamsFromJSON().getTeams()));
+        teamListView.getItems().clear();
+        Team[] teams = APIUtility.getTeamsFromJSON().getTeams();
+        for(Team team : teams){
+            if(team.getTeamName().contains(teamNameTextField.getText())){
+                teamListView.getItems().add(team);
+            }
+        }
     }
 
     @Override

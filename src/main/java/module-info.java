@@ -8,4 +8,5 @@ module com.example.comp1011assignment2 {
     opens com.example.comp1011assignment2.Model to javafx.fxml, com.google.gson;
     opens com.example.comp1011assignment2.Controller to javafx.fxml;
     exports com.example.comp1011assignment2.Model;
+    exports com.example.comp1011assignment2 to javafx.graphics;
 }
