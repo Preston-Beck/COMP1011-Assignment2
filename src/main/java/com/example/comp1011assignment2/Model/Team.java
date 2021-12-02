@@ -39,4 +39,8 @@ public class Team {
         public void setVenue(Venue venue) {
                 this.venue = venue;
         }
+
+        public String toString(){
+                return String.format("The %s, who play at the %s", name, venue);
+        }
 }

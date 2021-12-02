@@ -5,4 +5,8 @@ public class Venue {
     public String link;
     public String city;
     public TimeZone timeZone;
+
+    public String toString(){
+        return String.format("%s in %s",name, city);
+    }
 }

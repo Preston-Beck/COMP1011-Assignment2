@@ -5,6 +5,13 @@ import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 
 import java.io.FileReader;
+import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class APIUtility {
     public static NHLStatsApiResponse getTeamsFromJSON() {
@@ -18,5 +25,21 @@ public class APIUtility {
             e.printStackTrace();
         }
         return result;
+    }
+
+    public static NHLStatsApiResponse getTeamsFromAPI(String searchText) throws IOException, InterruptedException {
+        NHLStatsApiResponse result = null;
+        searchText = searchText.replace(" ", "%20");
+
+        String uri = "https://statsapi.web.nhl.com/api/v1/teams&s=" + searchText;
+
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder().uri(URI.create(uri)).build();
+
+        HttpResponse<Path> response = client.send(request, HttpResponse
+                .BodyHandlers.ofFile(Paths.get("apiResponse.json")));
+
+        result = getTeamsFromJSON();
+        return null;
     }
 }
