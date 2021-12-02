@@ -1,5 +1,7 @@
 package com.example.comp1011assignment2.Model;
 
+import com.example.comp1011assignment2.Model.Venue;
+
 public class Team {
         private int id;
         private String name;

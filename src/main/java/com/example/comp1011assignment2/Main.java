@@ -1,5 +1,7 @@
 package com.example.comp1011assignment2;
 
+import com.example.comp1011assignment2.Model.NHLStatsApiResponse;
+import com.example.comp1011assignment2.Utilities.APIUtility;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -19,5 +21,7 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch();
+//        NHLStatsApiResponse result = APIUtility.getTeamsFromJSON();
+//        System.out.println(result);
     }
 }

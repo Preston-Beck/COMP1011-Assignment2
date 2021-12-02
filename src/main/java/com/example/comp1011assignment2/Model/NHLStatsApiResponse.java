@@ -1,5 +1,4 @@
 package com.example.comp1011assignment2.Model;
-import com.google.gson.annotations.SerializedName;
 
 public class NHLStatsApiResponse {
     private Team[] teams;
