@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class NHLTableController implements Initializable {
@@ -31,15 +32,14 @@ public class NHLTableController implements Initializable {
 
     @FXML
     void getSearchResults(ActionEvent event) {
-        //teamListView.getItems().addAll(APIUtility.getTeamsFromJSON().getTeams());
-        //ArrayList<Team> teams = new ArrayList<Team>(List.of(APIUtility.getTeamsFromJSON().getTeams()));
         teamListView.getItems().clear();
         Team[] teams = APIUtility.getTeamsFromJSON().getTeams();
         for(Team team : teams){
-            if(team.getTeamName().contains(teamNameTextField.getText())){
+            if(team.getName().toLowerCase().contains(teamNameTextField.getText().toLowerCase())){
                 teamListView.getItems().add(team);
             }
         }
+        teamsFoundLabel.setText("Number of Teams Found: " + String.valueOf(teamListView.getItems().size()));
     }
 
     @Override
