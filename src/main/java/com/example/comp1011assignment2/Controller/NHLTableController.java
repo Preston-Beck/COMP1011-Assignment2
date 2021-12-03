@@ -1,14 +1,20 @@
 package com.example.comp1011assignment2.Controller;
+import com.example.comp1011assignment2.Main;
 import com.example.comp1011assignment2.Model.SceneChanger;
 import com.example.comp1011assignment2.Model.Team;
 import com.example.comp1011assignment2.Utilities.APIUtility;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -37,6 +43,8 @@ public class NHLTableController implements Initializable {
     @FXML
     private Button detailsButton;
 
+    //private Parent root;
+
     @FXML
     void getSearchResults(ActionEvent event) {
         teamListView.getItems().clear();
@@ -50,8 +58,23 @@ public class NHLTableController implements Initializable {
     }
 
     @FXML
-    void getMoreDetails(ActionEvent event) throws IOException {
-        SceneChanger.changeScenes(event, "teamDetailView.fxml", "Team Details");
+    public void getMoreDetails(ActionEvent event) throws IOException {
+        Team selectedTeam = teamListView.getSelectionModel().getSelectedItem();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("teamDetailView.fxml"));
+        Parent root = fxmlLoader.load();
+
+        TeamDetailController teamDetailController = fxmlLoader.getController();
+        teamDetailController.populateScene(selectedTeam);
+
+        //Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setTitle("Team Details");
+        stage.setScene(scene);
+        stage.show();
+
+        //SceneChanger.changeScenes(event, "teamDetailView.fxml", "Team Details");
     }
 
     @Override

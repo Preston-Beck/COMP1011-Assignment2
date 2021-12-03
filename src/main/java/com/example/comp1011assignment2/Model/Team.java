@@ -1,13 +1,11 @@
 package com.example.comp1011assignment2.Model;
 
-import com.example.comp1011assignment2.Model.Venue;
-
 public class Team {
         private int id;
         private String name;
         private String link;
         private Venue venue;
-        private String abbreviation;
+        private char abbreviation;
         private String teamName;
         private String locationName;
         private int firstYearOfPlay;
@@ -19,12 +17,38 @@ public class Team {
         private int franchiseId;
         private boolean active;
 
+        public Team(String name, String link, Venue venue,
+                    char abbreviation, String teamName,
+                    String locationName, int firstYearOfPlay,
+                    Division division, Conference conference,
+                    Franchise franchise, String shortName,
+                    String officialSiteUrl, int franchiseId,
+                    boolean active) {
+                setName(name);
+                setLink(link);
+                setVenue(venue);
+                setAbbreviation(abbreviation);
+                setTeamName(teamName);
+                setLocationName(locationName);
+                setFirstYearOfPlay(firstYearOfPlay);
+                setDivision(division);
+                setConference(conference);
+                setFranchise(franchise);
+                setShortName(shortName);
+                setOfficialSiteUrl(officialSiteUrl);
+                setFranchiseId(franchiseId);
+                setActive(active);
+        }
+
         public int getId() {
                 return id;
         }
 
         public void setId(int id) {
-                this.id = id;
+                if(id < 0)
+                        throw new IllegalArgumentException("ID cannot be negative.");
+                else
+                        this.id = id;
         }
 
         public String getName() {
@@ -32,7 +56,10 @@ public class Team {
         }
 
         public void setName(String name) {
-                this.name = name;
+                if(name.length() > 1)
+                        this.name = name;
+                else
+                        throw new IllegalArgumentException("Name must be greater than 1 character in length.");
         }
 
         public String getLink() {
@@ -40,7 +67,10 @@ public class Team {
         }
 
         public void setLink(String link) {
-                this.link = link;
+                if(link.contains("https"))
+                        this.link = link;
+                else
+                        throw new IllegalArgumentException("Links must be secure.");
         }
 
         public Venue getVenue() {
@@ -48,14 +78,17 @@ public class Team {
         }
 
         public void setVenue(Venue venue) {
-                this.venue = venue;
+                if(venue.getName().length() > 1 && venue.getCity().length() > 1)
+                        this.venue = venue;
+                else
+                        throw new IllegalArgumentException("Venue name and city must be greater than 1 character in length.");
         }
 
-        public String getAbbreviation() {
+        public char getAbbreviation() {
                 return abbreviation;
         }
 
-        public void setAbbreviation(String abbreviation) {
+        public void setAbbreviation(char abbreviation) {
                 this.abbreviation = abbreviation;
         }
 
@@ -64,6 +97,7 @@ public class Team {
         }
 
         public void setTeamName(String teamName) {
+
                 this.teamName = teamName;
         }
 
