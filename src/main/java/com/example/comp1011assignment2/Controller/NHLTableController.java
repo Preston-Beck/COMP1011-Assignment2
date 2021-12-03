@@ -1,4 +1,5 @@
 package com.example.comp1011assignment2.Controller;
+import com.example.comp1011assignment2.Model.SceneChanger;
 import com.example.comp1011assignment2.Model.Team;
 import com.example.comp1011assignment2.Utilities.APIUtility;
 import javafx.event.ActionEvent;
@@ -31,6 +32,12 @@ public class NHLTableController implements Initializable {
     private Button searchButton;
 
     @FXML
+    private Label detailsLabel;
+
+    @FXML
+    private Button detailsButton;
+
+    @FXML
     void getSearchResults(ActionEvent event) {
         teamListView.getItems().clear();
         Team[] teams = APIUtility.getTeamsFromJSON().getTeams();
@@ -42,12 +49,22 @@ public class NHLTableController implements Initializable {
         teamsFoundLabel.setText("Number of Teams Found: " + String.valueOf(teamListView.getItems().size()));
     }
 
+    @FXML
+    void getMoreDetails(ActionEvent event) throws IOException {
+        SceneChanger.changeScenes(event, "teamDetailView.fxml", "Team Details");
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
+        detailsLabel.setVisible(false);
+        detailsButton.setVisible(false);
+        teamsFoundLabel.setText("Number of Teams Found: " + String.valueOf(teamListView.getItems().size()));
         teamListView.getSelectionModel().selectedItemProperty().addListener(
                 (observable, old, teamSelected) -> {
-
+                    detailsLabel.setVisible(true);
+                    detailsButton.setVisible(true);
                 }
         );
+
     }
 }

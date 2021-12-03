@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+
+<AnchorPane prefHeight="497.0" prefWidth="621.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.comp1011assignment2.Controller.TeamDetailController">
+   <children>
+      <BorderPane layoutX="74.0" layoutY="149.0" prefHeight="497.0" prefWidth="621.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <Label fx:id="teamNameLabel" text="Team Name" BorderPane.alignment="CENTER" />
+         </top>
+         <center>
+            <GridPane prefHeight="432.0" prefWidth="621.0" BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="251.0" minWidth="10.0" prefWidth="138.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="376.0" minWidth="10.0" prefWidth="283.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Location:" />
+                  <Label text="Division:" GridPane.rowIndex="1" />
+                  <Label text="Conference" GridPane.rowIndex="2" />
+                  <Label text="Franchise:" GridPane.rowIndex="3" />
+                  <Label text="First Year of Play:" GridPane.rowIndex="4" />
+                  <Label text="Home Venue:" GridPane.rowIndex="5" />
+                  <Label fx:id="locationlbl" text="Label" GridPane.columnIndex="1" />
+                  <Label fx:id="divisionlbl" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label fx:id="conferencelbl" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label fx:id="franchiselbl" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label fx:id="firstYearlbl" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Label fx:id="venuelbl" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+               </children>
+               <BorderPane.margin>
+                  <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+               </BorderPane.margin>
+            </GridPane>
+         </center>
+         <bottom>
+            <Button mnemonicParsing="false" onAction="#returnToList" text="Return to List" BorderPane.alignment="CENTER" />
+         </bottom>
+         <padding>
+            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+         </padding>
+      </BorderPane>
+   </children>
+</AnchorPane>
