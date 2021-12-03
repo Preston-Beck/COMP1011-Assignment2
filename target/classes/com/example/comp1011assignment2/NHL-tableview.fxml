@@ -9,11 +9,14 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="497.0" prefWidth="621.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.comp1011assignment2.Controller.NHLTableController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="497.0" prefWidth="621.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.comp1011assignment2.Controller.NHLTableController">
    <children>
-      <VBox alignment="TOP_CENTER" layoutX="194.0" layoutY="36.0" prefHeight="400.0" prefWidth="600.0" spacing="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="TOP_CENTER" layoutX="194.0" layoutY="36.0" prefHeight="400.0" prefWidth="600.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label text="NHL TEAMS" />
+            <Label styleClass="header" text="NHL TEAMS">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin></Label>
             <HBox alignment="TOP_CENTER" prefHeight="42.0" prefWidth="600.0" spacing="25.0">
                <children>
                   <Label text="Team Name:" />
@@ -45,6 +48,9 @@
                </VBox.margin>
             </HBox>
          </children>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
       </VBox>
    </children>
 </AnchorPane>

@@ -1,0 +1,22 @@
+.root{
+    -fx-background-color: skyBlue;
+    -fx-font-family: "Bookman Old Style";
+    -fx-text-fill: black;
+    -fx-border-color: lightgreen;
+    -fx-border-width: 5px;
+}
+
+.button {
+    -fx-background-color: green;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.header{
+    -fx-font-size: 25px;
+    -fx-underline: true;
+}
+
+.list-view{
+    -fx-background-color: inherit;
+}

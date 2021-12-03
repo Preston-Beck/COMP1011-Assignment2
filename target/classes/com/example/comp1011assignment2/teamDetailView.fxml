@@ -9,18 +9,17 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
-<AnchorPane prefHeight="497.0" prefWidth="621.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.comp1011assignment2.Controller.TeamDetailController">
+<AnchorPane prefHeight="497.0" prefWidth="621.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.comp1011assignment2.Controller.TeamDetailController">
    <children>
       <BorderPane layoutX="74.0" layoutY="149.0" prefHeight="497.0" prefWidth="621.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
-            <Label fx:id="teamNameLabel" text="Team Name" BorderPane.alignment="CENTER" />
+            <Label fx:id="teamNameLabel" styleClass="header" text="Team Name" BorderPane.alignment="CENTER" />
          </top>
          <center>
-            <GridPane prefHeight="432.0" prefWidth="621.0" BorderPane.alignment="CENTER">
+            <GridPane prefHeight="242.0" prefWidth="294.0" BorderPane.alignment="CENTER">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="251.0" minWidth="10.0" prefWidth="138.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="376.0" minWidth="10.0" prefWidth="283.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="251.0" minWidth="10.0" prefWidth="184.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="376.0" minWidth="10.0" prefWidth="177.0" />
               </columnConstraints>
               <rowConstraints>
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -45,7 +44,7 @@
                   <Label fx:id="venuelbl" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                </children>
                <BorderPane.margin>
-                  <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+                  <Insets bottom="50.0" left="80.0" right="80.0" top="50.0" />
                </BorderPane.margin>
             </GridPane>
          </center>

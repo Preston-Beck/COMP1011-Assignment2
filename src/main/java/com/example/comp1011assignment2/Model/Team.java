@@ -5,7 +5,7 @@ public class Team {
         private String name;
         private String link;
         private Venue venue;
-        private char abbreviation;
+        private String abbreviation;
         private String teamName;
         private String locationName;
         private int firstYearOfPlay;
@@ -35,7 +35,7 @@ public class Team {
          * @param active
          */
         public Team(String name, String link, Venue venue,
-                    char abbreviation, String teamName,
+                    String abbreviation, String teamName,
                     String locationName, int firstYearOfPlay,
                     Division division, Conference conference,
                     Franchise franchise, String shortName,
@@ -101,11 +101,11 @@ public class Team {
                         throw new IllegalArgumentException("Venue name and city must be greater than 1 character in length.");
         }
 
-        public char getAbbreviation() {
+        public String getAbbreviation() {
                 return abbreviation;
         }
 
-        public void setAbbreviation(char abbreviation) {
+        public void setAbbreviation(String abbreviation) {
                 this.abbreviation = abbreviation;
         }
 
