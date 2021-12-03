@@ -7,6 +7,10 @@ import com.google.gson.stream.JsonReader;
 import java.io.FileReader;
 
 public class APIUtility {
+    /**
+     * Reads the JSON file apiResponse.json and returns an array of Team objects.
+     * @return
+     */
     public static NHLStatsApiResponse getTeamsFromJSON() {
         Gson gson = new Gson();
         NHLStatsApiResponse result = null;

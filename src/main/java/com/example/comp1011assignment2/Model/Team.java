@@ -17,6 +17,23 @@ public class Team {
         private int franchiseId;
         private boolean active;
 
+        /**
+         * Constructor to make a Team object. Includes 14 parameters
+         * @param name
+         * @param link
+         * @param venue
+         * @param abbreviation
+         * @param teamName
+         * @param locationName
+         * @param firstYearOfPlay
+         * @param division
+         * @param conference
+         * @param franchise
+         * @param shortName
+         * @param officialSiteUrl
+         * @param franchiseId
+         * @param active
+         */
         public Team(String name, String link, Venue venue,
                     char abbreviation, String teamName,
                     String locationName, int firstYearOfPlay,
@@ -173,6 +190,10 @@ public class Team {
                 this.active = active;
         }
 
+        /**
+         * toString method used to output the Team object in a readable fashion
+         * @return
+         */
         public String toString(){
                 return String.format("The %s, who play at the %s", name, venue);
         }

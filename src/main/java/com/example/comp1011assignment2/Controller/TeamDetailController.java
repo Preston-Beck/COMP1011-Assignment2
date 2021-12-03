@@ -31,6 +31,11 @@ public class TeamDetailController {
     @FXML
     private Label venuelbl;
 
+    /**
+     * Method called by NHLTableController.getMoreDetails.
+     * Updates all the information labels to coincide with the Team object passed to it.
+     * @param team Team object used to get text for labels
+     */
     @FXML
     public void populateScene(Team team){
         teamNameLabel.setText(team.getName());
@@ -42,6 +47,11 @@ public class TeamDetailController {
         venuelbl.setText(team.getVenue().getName());
     }
 
+    /**
+     * Loads the NHL-tableview.fxml scene with a title of NHL Teams
+     * @param event Attached to onAction for Return to List button
+     * @throws IOException
+     */
     @FXML
     void returnToList(ActionEvent event) throws IOException {
         SceneChanger.changeScenes(event, "NHL-tableview.fxml", "NHL Teams");

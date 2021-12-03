@@ -12,6 +12,11 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class Main extends Application {
+    /**
+     * Loads initial Scene when program is launched.
+     * @param stage
+     * @throws IOException
+     */
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("NHL-tableview.fxml"));

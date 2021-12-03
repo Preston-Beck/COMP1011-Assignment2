@@ -43,8 +43,11 @@ public class NHLTableController implements Initializable {
     @FXML
     private Button detailsButton;
 
-    //private Parent root;
-
+    /**
+     * When Search button is pressed, the JSON file is read and returns an array of Teams.
+     * Each team is checked to see if it contains the corresponding String from the search bar.
+     * @param event Button Press
+     */
     @FXML
     void getSearchResults(ActionEvent event) {
         teamListView.getItems().clear();
@@ -57,6 +60,13 @@ public class NHLTableController implements Initializable {
         teamsFoundLabel.setText("Number of Teams Found: " + String.valueOf(teamListView.getItems().size()));
     }
 
+    /**
+     * This method is called when the More Details Button is pressed.
+     * Grabs the selected team and uses it to call a controller method from the new scene.
+     * Loads the teamDetailView.fxml file with a title of Team Details.
+     * @param event More details button
+     * @throws IOException
+     */
     @FXML
     public void getMoreDetails(ActionEvent event) throws IOException {
         Team selectedTeam = teamListView.getSelectionModel().getSelectedItem();
@@ -67,16 +77,19 @@ public class NHLTableController implements Initializable {
         TeamDetailController teamDetailController = fxmlLoader.getController();
         teamDetailController.populateScene(selectedTeam);
 
-        //Scene scene = new Scene(fxmlLoader.load());
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setTitle("Team Details");
         stage.setScene(scene);
         stage.show();
-
-        //SceneChanger.changeScenes(event, "teamDetailView.fxml", "Team Details");
     }
 
+    /**
+     * When the scene loads, details label and button are made invisible and the teams found label is updated.
+     * An event listener for when a team is selected is implemented as well.
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         detailsLabel.setVisible(false);
